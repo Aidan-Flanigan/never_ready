@@ -8,8 +8,6 @@
 
 ### Limitation of Data 
 
-### Potential Extensions of Data 
-
 ### Glossary 
 
 ## II. Model Analysis 
