@@ -43,6 +43,19 @@ TDSP - Percent Household Debt of Disposable Income
 ### Time Series (ARIMA)
 
 ### Random Forest 
+Random forest regression was estimated using the standard number (100) of decision tree estimators. Two types of features were added in to increase the precision of the estimate:
+1. Since holidays and seasons affect spending patterns, seasonal dummies were added for winter (December-February), spring (March-May), and summer (June-August). Fall was excluded and is the baseline season.
+2. Persistence of sales is expected for Honda Civics, so for each regression, 0 to 4 lags of Civic Car Sales were added to the data based on what is a better fit with the train data.
+
+
+In the random split (75-25 for train-test) prediction, the best model had one lag of Civic Car Sales. The training and test RMSE were approximately 1532.429 and 3027.195 respectively, indicating overfitting.
+
+
+For the prediction of the last 12 months of the model based on all other data points, the best model had one lag of Civic Car Sales. The training and test RMSE were approximately 1512.490 and 2760.710 respectively, indicating overfitting.
+
+
+Overall, while overfitting took place in both prediction tests, the model was only off by around 1-3 thousand car, which indicates a high level of prediction and accuracy even in comparison to the variation of the sales (standard deviation of approximately 7264.089).
+However, the model is limited by not accounting for the time differences in the features and outcome variable, which could decrease accuracy of predictions over time.
 
 ### Decision Tree
 
