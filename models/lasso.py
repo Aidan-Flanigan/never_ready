@@ -6,7 +6,7 @@ import matplotlib.dates as mdates
 from sklearn.linear_model import LassoCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import TimeSeriesSplit
 
 def add_civic_lags(df, max_lag):
@@ -84,13 +84,16 @@ for max_lag in candidate_lags:
     mse_train = mean_squared_error(y_train, y_pred_train)
     mse_test = mean_squared_error(y_test, y_pred_test)
     r2_test = r2_score(y_test, y_pred_test)
-
+    rmse_train = mse_train ** (1/2)
+    rmse_test = mse_test ** (1/2)
+    
 
     print(f"\nLASSO with max_lag = {max_lag} ")
     print(f"Optimal alpha (lambda): {lasso_cv.alpha_:.6f}")
     print(f"n_features: {len(feature_cols)} | n_kept: {int(non_zero_mask.sum())}")
     print(feature_cols)
     print(f"Train MSE: {mse_train:.2f} | Test MSE: {mse_test:.2f} | Test R^2: {r2_test:.3f}")
+    print(f"Train RMSE: {rmse_train:.2f} | Test RMSE: {rmse_test:.2f} | Test R^2: {r2_test:.3f}")
 
     results.append({
         "max_lag": max_lag,
@@ -186,9 +189,13 @@ plt.close()
 mse_train_1_short = mean_squared_error(y_train_1_short, y_pred_train_1_short)
 mse_test_1_short = mean_squared_error(y_test_1_short, y_pred_test_1_short)
 r2_test_1_short = r2_score(y_test_1_short, y_pred_test_1_short)
+rmse_train_1_short = mse_train_1_short ** (1/2)
+rmse_test_1_short = mse_test_1_short ** (1/2)
 
 print(f"\nLASSO with max_lag = {1} with only recent training data")
 print(f"Optimal alpha (lambda): {lasso_cv.alpha_:.6f}")
 print(f"n_features: {len(feature_cols_1)} | n_kept: {int(non_zero_mask.sum())}")
 print(feature_cols_1)
 print(f"Train MSE: {mse_train_1_short:.2f} | Test MSE: {mse_test_1_short:.2f} | Test R^2: {r2_test_1_short:.3f}")
+print(f"Train RMSE: {rmse_train_1_short:.2f} | Test RMSE: {rmse_test_1_short:.2f} | Test R^2: {r2_test_1_short:.3f}")
+
