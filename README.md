@@ -41,7 +41,7 @@ The linear regression acted as our baseline model. No adjustemnts to weights, ad
 
 Civic_sales = 𝛼 + β1(corrola_sales) + β2(sentra_sales) + β3(cpi) + β4(fedfunds) + β5(gas) + β6(unemploy) + β7(csi) + β8(tdsp) + ε
 
-The regression itself suffers from multiple issues, all of which likely impact the model's predictive capabilities. As can be seen by running the Linear_Regression.py file and observing the table it produces, the model suffers from both autocorrelation (because we regressed trends) and multicollinearity. This makes it hard to interpret the regression table above or draw conclusions from many of the coefficients.
+The regression itself suffers from multiple issues, all of which likely impact the model's predictive capabilities. As can be seen by running the Linear_Regression.py file and observing the table it produces, the model suffers from both autocorrelation (because we regressed trends) and multicollinearity. This makes it hard to interpret the regression table or draw conclusions from many of the coefficients.
 
 In terms of predictive capabilities, the model produces the following results:
 Train MSE: 17646666.70
