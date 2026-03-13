@@ -41,37 +41,7 @@ The linear regression acted as our baseline model. No adjustemnts to weights, ad
 
 Civic_sales = 𝛼 + β1(corrola_sales) + β2(sentra_sales) + β3(cpi) + β4(fedfunds) + β5(gas) + β6(unemploy) + β7(csi) + β8(tdsp) + ε
 
-                            OLS Regression Results
-==============================================================================
-Dep. Variable:            civic_sales   R-squared:                       0.674
-Model:                            OLS   Adj. R-squared:                  0.663
-Method:                 Least Squares   F-statistic:                     62.95
-Date:                Thu, 12 Mar 2026   Prob (F-statistic):           4.65e-55
-Time:                        18:09:18   Log-Likelihood:                -2466.7
-No. Observations:                 253   AIC:                             4951.
-Df Residuals:                     244   BIC:                             4983.
-Df Model:                           8
-Covariance Type:            nonrobust
-=================================================================================
-                    coef    std err          t      P>|t|      [0.025      0.975]
----------------------------------------------------------------------------------
-Intercept     -7734.6151   1.51e+04     -0.513      0.608   -3.74e+04     2.2e+04
-corolla_sales     0.5632      0.058      9.778      0.000       0.450       0.677
-sentra_sales      0.5596      0.091      6.174      0.000       0.381       0.738
-cpi             -10.4592     25.408     -0.412      0.681     -60.506      39.588
-fedfunds        132.1791    255.344      0.518      0.605    -370.782     635.140
-gas             926.2244    599.044      1.546      0.123    -253.732    2106.181
-unemploy        663.1569    214.578      3.091      0.002     240.496    1085.818
-csi              86.7959     42.872      2.025      0.044       2.349     171.243
-tdsp             42.4914    437.657      0.097      0.923    -819.577     904.560
-==============================================================================
-Omnibus:                       28.341   Durbin-Watson:                   0.984
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               45.150
-Skew:                           0.666   Prob(JB):                     1.57e-10
-Kurtosis:                       4.584   Cond. No.                     1.61e+06
-==============================================================================
-
-The regression itself suffers from multiple issues, all of which likely impact the model's predictive capabilities. The model suffers from both autocorrelation (because we regressed trends) and multicollinearity. This makes it hard to interpret the regression table above or draw conclusions from many of the coefficients.
+The regression itself suffers from multiple issues, all of which likely impact the model's predictive capabilities. As can be seen by running the Linear_Regression.py file and observing the table it produces, the model suffers from both autocorrelation (because we regressed trends) and multicollinearity. This makes it hard to interpret the regression table above or draw conclusions from many of the coefficients.
 
 In terms of predictive capabilities, the model produces the following results:
 Train MSE: 17646666.70
