@@ -89,9 +89,9 @@ plt.tight_layout()
 plt.savefig(f"{output_dir}/linear_regression_plot.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-"""
-This part will now generate a plot of the actual vs predicted values across the entire dataset
-"""
+
+### This part will now generate a plot of the actual vs predicted values across the 
+### entire dataset
 
 plt.figure(figsize=(10, 6))
 plt.plot(df['date'], y, label='Actual', color='blue')
